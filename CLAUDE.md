@@ -20,20 +20,24 @@ See README.md for full usage options.
 
 - **New subdomains**: Add to `SUBDOMAINS` list (line 12)
 - **New DKIM selectors**: Add to `DKIM_SELECTORS` list (line 24)
-- **New record types**: Add to `RECORD_TYPES` list (line 30)
+- **New record types**: Add to `RECORD_TYPES` list (line 31)
+- **New DNSSEC types**: Add to `DNSSEC_TYPES` list (line 34)
 - **New special records**: Add query in `query_special_records()` following the `_dmarc.{fqdn}` pattern
 
 ### Error Handling
 
-DNS queries use silent failure pattern - exceptions are caught and ignored to continue enumeration:
+DNS queries distinguish between expected and unexpected failures:
 ```python
 try:
     answers = resolver.resolve(fqdn, rtype)
-except Exception:
-    pass  # Expected for non-existent records
+except (dns.resolver.NXDOMAIN, dns.resolver.NoAnswer, dns.resolver.NoNameservers):
+    pass  # Expected - record doesn't exist
+except dns.exception.Timeout:
+    query_errors.append(...)  # Track for warning
 ```
 
-Maintain this pattern for DNS queries. Use explicit error handling only for file I/O and argument validation.
+- `NXDOMAIN`, `NoAnswer`, `NoNameservers` - silent (expected for non-existent records)
+- `Timeout` and other exceptions - tracked in `query_errors` list, shown with `--verbose`
 
 ### Output Structure
 
@@ -42,11 +46,25 @@ All records use this dict structure:
 {"domain": str, "type": str, "value": str, "ttl": int}
 ```
 
-AXFR results add `"source": "AXFR"`. Maintain this structure for compatibility with `write_results()`.
+Optional fields:
+- `"source": "AXFR"` - for zone transfer results
+- `"is_wildcard": True` - for wildcard records
+- `"is_dnssec": True` - for DS/DNSKEY records
+
+### Comparison Output
+
+`detect_changes()` returns:
+- `old_only` - records truly removed (domain+type not in new)
+- `new_only` - records truly added (domain+type not in old)
+- `changed` - same domain+type, different values
+- `unchanged` - identical records
 
 ## Key Functions
 
 - `enumerate_domains()` - Main enumeration loop
-- `query_record()` - Single DNS query wrapper
+- `query_record()` - Single DNS query wrapper with error tracking
 - `query_special_records()` - DMARC, DKIM, MTA-STS, BIMI, TLSA queries
+- `query_wildcard()` - Wildcard record queries
+- `query_dnssec()` - DS/DNSKEY queries
+- `detect_changes()` - Groups records by (domain, type) to find changes
 - `compare_dns()` - Diff between two nameservers

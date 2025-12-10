@@ -1,4 +1,4 @@
-# dns_dump.py
+# dns-migration-helper
 
 DNS enumeration tool for domain migrations. Queries multiple record types across root domains and common subdomains.
 
@@ -31,8 +31,9 @@ uv run dns_dump.py --csv domains.txt --compare --old-ns <current-ns-ip> --new-ns
 
 Review the comparison output:
 - `dns_records_comparison.json` shows differences
-- `old_only` - records missing from new NS (action required)
-- `new_only` - new records added (verify intentional)
+- `removed` - records missing from new NS (action required)
+- `added` - new records added (verify intentional)
+- `changed` - records with same domain/type but different values
 
 ### Step 5: Update NS Records at Registrar
 Once verified, update your domain's nameserver records at your registrar.
@@ -76,6 +77,12 @@ uv run dns_dump.py example.com --compare --old-ns 8.8.8.8 --new-ns 1.1.1.1
 
 # Custom output prefix
 uv run dns_dump.py example.com --output my_dump
+
+# Add custom subdomains
+uv run dns_dump.py example.com --subdomains git,gitlab,jenkins
+
+# Verbose mode (show query warnings)
+uv run dns_dump.py example.com -v
 ```
 
 ## Options
@@ -88,14 +95,25 @@ uv run dns_dump.py example.com --output my_dump
 | `--old-ns IP` | Old nameserver IP (requires --compare) |
 | `--new-ns IP` | New nameserver IP (requires --compare) |
 | `--output PREFIX` | Output filename prefix (default: dns_records) |
+| `--verbose`, `-v` | Show warnings for failed queries |
+| `--subdomains LIST` | Additional subdomains (comma-separated) |
+| `--subdomain-file FILE` | File with additional subdomains (one per line) |
 
 ## What It Checks
 
 ### Record Types
 A, AAAA, CNAME, MX, TXT, NS, SOA, SRV, CAA, PTR
 
-### Subdomains (44 total)
+### DNSSEC Records
+DS, DNSKEY (queried at root domain)
+
+### Wildcard Records
+`*.{domain}` for A, AAAA, CNAME
+
+### Subdomains (44 default + custom)
 www, mail, email, webmail, smtp, pop, imap, ftp, api, dev, staging, test, beta, app, admin, portal, secure, vpn, remote, cdn, shop, store, blog, news, support, help, m, mobile, static, assets, img, images, ns1, ns2, dns, dns1, dns2, mx, mx1, mx2, mail1, mail2, autodiscover, autoconfig, cpanel, whm, webdisk
+
+Use `--subdomains` or `--subdomain-file` to add custom subdomains.
 
 ### Special Records (per subdomain)
 - `_dmarc.{domain}` - DMARC policy
@@ -114,7 +132,7 @@ Attempts AXFR on each domain's nameservers (usually blocked but worth trying).
 - `dns_records.csv` - Same data in CSV format
 
 ### Comparison Mode
-- `dns_records_comparison.json` - Diff summary (old_only, new_only counts)
+- `dns_records_comparison.json` - Diff summary with removed, added, changed counts
 - `dns_records_old.json` / `dns_records_old.csv` - Full dump from old NS
 - `dns_records_new.json` / `dns_records_new.csv` - Full dump from new NS
 
@@ -131,7 +149,7 @@ Attempts AXFR on each domain's nameservers (usually blocked but worth trying).
 
 ## Limitations
 
-- Cannot discover arbitrary subdomains (only checks predefined list)
+- Cannot discover arbitrary subdomains (checks predefined list + custom via `--subdomains`)
 - DKIM selectors must be guessed (checks 15 common ones)
 - Zone transfers usually blocked by nameservers
 - No recursive subdomain enumeration

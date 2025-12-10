@@ -1,0 +1,42 @@
+domain,type,value
+mqol.ai,A,3.33.251.168
+mqol.ai,A,15.197.225.128
+mqol.ai,NS,ns24.domaincontrol.com.
+mqol.ai,NS,ns23.domaincontrol.com.
+mqol.ai,SOA,ns23.domaincontrol.com. dns.jomax.net. 2025112400 28800 7200 604800 600
+mqol.biz,A,3.33.251.168
+mqol.biz,A,15.197.225.128
+mqol.biz,NS,ns07.domaincontrol.com.
+mqol.biz,NS,ns08.domaincontrol.com.
+mqol.biz,SOA,ns07.domaincontrol.com. dns.jomax.net. 2025073101 28800 7200 604800 600
+mqol.co,A,185.230.63.186
+mqol.co,A,185.230.63.107
+mqol.co,A,185.230.63.171
+mqol.co,MX,5 alt2.aspmx.l.google.com.
+mqol.co,NS,ns15.wixdns.net.
+mqol.co,NS,ns14.wixdns.net.
+mqol.co,SOA,ns14.wixdns.net. support.wix.com. 2022082819 10800 3600 1209600 3600
+mqol.com,A,185.230.63.186
+mqol.com,A,185.230.63.171
+mqol.com,A,185.230.63.107
+mqol.com,MX,5 alt2.aspmx.l.google.com.
+mqol.com,MX,10 alt4.aspmx.l.google.com.
+mqol.com,MX,1 aspmx.l.google.com.
+mqol.com,MX,5 alt1.aspmx.l.google.com.
+mqol.com,MX,10 alt3.aspmx.l.google.com.
+mqol.com,TXT,"""v=spf1 include:_spf.google.com ~all"""
+mqol.com,TXT,"""google-site-verification=tY0V8zSUEOV6mE7--ZT8si73zeVSR_7gzKWPiJMskqE"""
+mqol.com,TXT,"""google-site-verification=Eu7t107bUIKMODiOPK9J5u14-WNKtQNsAe4-6O5ugXg"""
+mqol.com,NS,ns15.wixdns.net.
+mqol.com,NS,ns14.wixdns.net.
+mqol.com,SOA,ns14.wixdns.net. support.wix.com. 2025021521 10800 3600 1209600 3600
+mqol.net,A,15.197.225.128
+mqol.net,A,3.33.251.168
+mqol.net,NS,ns24.domaincontrol.com.
+mqol.net,NS,ns23.domaincontrol.com.
+mqol.net,SOA,ns23.domaincontrol.com. dns.jomax.net. 2025073101 28800 7200 604800 600
+mqol.org,A,15.197.225.128
+mqol.org,A,3.33.251.168
+mqol.org,NS,ns08.domaincontrol.com.
+mqol.org,NS,ns07.domaincontrol.com.
+mqol.org,SOA,ns07.domaincontrol.com. dns.jomax.net. 2025073101 28800 7200 604800 600

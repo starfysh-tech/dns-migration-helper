@@ -1,0 +1,207 @@
+[
+  {
+    "domain": "mqol.ai",
+    "type": "A",
+    "value": "3.33.251.168"
+  },
+  {
+    "domain": "mqol.ai",
+    "type": "A",
+    "value": "15.197.225.128"
+  },
+  {
+    "domain": "mqol.ai",
+    "type": "NS",
+    "value": "ns24.domaincontrol.com."
+  },
+  {
+    "domain": "mqol.ai",
+    "type": "NS",
+    "value": "ns23.domaincontrol.com."
+  },
+  {
+    "domain": "mqol.ai",
+    "type": "SOA",
+    "value": "ns23.domaincontrol.com. dns.jomax.net. 2025112400 28800 7200 604800 600"
+  },
+  {
+    "domain": "mqol.biz",
+    "type": "A",
+    "value": "3.33.251.168"
+  },
+  {
+    "domain": "mqol.biz",
+    "type": "A",
+    "value": "15.197.225.128"
+  },
+  {
+    "domain": "mqol.biz",
+    "type": "NS",
+    "value": "ns07.domaincontrol.com."
+  },
+  {
+    "domain": "mqol.biz",
+    "type": "NS",
+    "value": "ns08.domaincontrol.com."
+  },
+  {
+    "domain": "mqol.biz",
+    "type": "SOA",
+    "value": "ns07.domaincontrol.com. dns.jomax.net. 2025073101 28800 7200 604800 600"
+  },
+  {
+    "domain": "mqol.co",
+    "type": "A",
+    "value": "185.230.63.186"
+  },
+  {
+    "domain": "mqol.co",
+    "type": "A",
+    "value": "185.230.63.107"
+  },
+  {
+    "domain": "mqol.co",
+    "type": "A",
+    "value": "185.230.63.171"
+  },
+  {
+    "domain": "mqol.co",
+    "type": "MX",
+    "value": "5 alt2.aspmx.l.google.com."
+  },
+  {
+    "domain": "mqol.co",
+    "type": "NS",
+    "value": "ns15.wixdns.net."
+  },
+  {
+    "domain": "mqol.co",
+    "type": "NS",
+    "value": "ns14.wixdns.net."
+  },
+  {
+    "domain": "mqol.co",
+    "type": "SOA",
+    "value": "ns14.wixdns.net. support.wix.com. 2022082819 10800 3600 1209600 3600"
+  },
+  {
+    "domain": "mqol.com",
+    "type": "A",
+    "value": "185.230.63.186"
+  },
+  {
+    "domain": "mqol.com",
+    "type": "A",
+    "value": "185.230.63.171"
+  },
+  {
+    "domain": "mqol.com",
+    "type": "A",
+    "value": "185.230.63.107"
+  },
+  {
+    "domain": "mqol.com",
+    "type": "MX",
+    "value": "5 alt2.aspmx.l.google.com."
+  },
+  {
+    "domain": "mqol.com",
+    "type": "MX",
+    "value": "10 alt4.aspmx.l.google.com."
+  },
+  {
+    "domain": "mqol.com",
+    "type": "MX",
+    "value": "1 aspmx.l.google.com."
+  },
+  {
+    "domain": "mqol.com",
+    "type": "MX",
+    "value": "5 alt1.aspmx.l.google.com."
+  },
+  {
+    "domain": "mqol.com",
+    "type": "MX",
+    "value": "10 alt3.aspmx.l.google.com."
+  },
+  {
+    "domain": "mqol.com",
+    "type": "TXT",
+    "value": "\"v=spf1 include:_spf.google.com ~all\""
+  },
+  {
+    "domain": "mqol.com",
+    "type": "TXT",
+    "value": "\"google-site-verification=tY0V8zSUEOV6mE7--ZT8si73zeVSR_7gzKWPiJMskqE\""
+  },
+  {
+    "domain": "mqol.com",
+    "type": "TXT",
+    "value": "\"google-site-verification=Eu7t107bUIKMODiOPK9J5u14-WNKtQNsAe4-6O5ugXg\""
+  },
+  {
+    "domain": "mqol.com",
+    "type": "NS",
+    "value": "ns15.wixdns.net."
+  },
+  {
+    "domain": "mqol.com",
+    "type": "NS",
+    "value": "ns14.wixdns.net."
+  },
+  {
+    "domain": "mqol.com",
+    "type": "SOA",
+    "value": "ns14.wixdns.net. support.wix.com. 2025021521 10800 3600 1209600 3600"
+  },
+  {
+    "domain": "mqol.net",
+    "type": "A",
+    "value": "15.197.225.128"
+  },
+  {
+    "domain": "mqol.net",
+    "type": "A",
+    "value": "3.33.251.168"
+  },
+  {
+    "domain": "mqol.net",
+    "type": "NS",
+    "value": "ns24.domaincontrol.com."
+  },
+  {
+    "domain": "mqol.net",
+    "type": "NS",
+    "value": "ns23.domaincontrol.com."
+  },
+  {
+    "domain": "mqol.net",
+    "type": "SOA",
+    "value": "ns23.domaincontrol.com. dns.jomax.net. 2025073101 28800 7200 604800 600"
+  },
+  {
+    "domain": "mqol.org",
+    "type": "A",
+    "value": "15.197.225.128"
+  },
+  {
+    "domain": "mqol.org",
+    "type": "A",
+    "value": "3.33.251.168"
+  },
+  {
+    "domain": "mqol.org",
+    "type": "NS",
+    "value": "ns08.domaincontrol.com."
+  },
+  {
+    "domain": "mqol.org",
+    "type": "NS",
+    "value": "ns07.domaincontrol.com."
+  },
+  {
+    "domain": "mqol.org",
+    "type": "SOA",
+    "value": "ns07.domaincontrol.com. dns.jomax.net. 2025073101 28800 7200 604800 600"
+  }
+]
